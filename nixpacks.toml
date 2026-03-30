@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LeadHarvest — Find Business Leads Instantly</title>
+<meta name="description" content="Find local business leads with emails, phone numbers and social profiles in seconds. Powered by AI. Try free for 7 days."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--surface:#0f1318;--surface2:#161c24;
+  --border:#1e2730;--border2:#2a3540;
+  --green:#00e5a0;--green-dim:#00c488;--green-glow:rgba(0,229,160,0.12);
+  --text:#e8edf2;--muted:#5a6875;--muted2:#8a97a4;
+  --red:#ff4d6a;--amber:#ffb020;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 60px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,12,16,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
+@media(max-width:768px){nav{padding:16px 20px}}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:32px}
+@media(max-width:768px){.nav-links .nav-link{display:none}}
+.nav-link{color:var(--muted2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.15s}
+.nav-link:hover{color:var(--text)}
+.nav-btns{display:flex;align-items:center;gap:12px}
+.btn-ghost{color:var(--text);text-decoration:none;font-size:0.88rem;font-weight:500;padding:8px 18px;border-radius:6px;transition:all 0.15s}
+.btn-ghost:hover{background:var(--surface2)}
+.btn-cta{background:var(--green);color:var(--bg);text-decoration:none;font-size:0.88rem;font-weight:700;padding:9px 22px;border-radius:6px;transition:background 0.15s}
+.btn-cta:hover{background:var(--green-dim)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px 60px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,160,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--green-glow);border:1px solid rgba(0,229,160,0.25);color:var(--green);font-size:0.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:28px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-1px;margin-bottom:24px;max-width:800px}
+h1 em{color:var(--green);font-style:normal;display:block}
+.hero-sub{font-size:1.15rem;color:var(--muted2);line-height:1.7;max-width:520px;margin:0 auto 40px;font-weight:300}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-primary{background:var(--green);color:var(--bg);font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.5px;padding:16px 36px;border-radius:8px;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--green-dim);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--text);font-size:1rem;font-weight:500;padding:15px 32px;border-radius:8px;text-decoration:none;border:1px solid var(--border2);transition:all 0.15s}
+.btn-secondary:hover{border-color:var(--green);color:var(--green)}
+.hero-trust{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--muted2)}
+.trust-icon{color:var(--green);font-size:1rem}
+
+/* DEMO WIDGET */
+.demo-section{padding:0 20px 100px;position:relative;z-index:1}
+.demo-card{max-width:780px;margin:0 auto;background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+.demo-bar{background:var(--surface2);padding:14px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.demo-dot{width:12px;height:12px;border-radius:50%}
+.demo-url{flex:1;background:var(--bg);border-radius:6px;padding:6px 14px;font-size:0.78rem;color:var(--muted);font-family:monospace;margin:0 12px}
+.demo-body{padding:24px}
+.demo-search{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.demo-input{flex:1;min-width:140px;background:var(--bg);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:0.88rem;padding:10px 14px;outline:none}
+.demo-btn{background:var(--green);color:var(--bg);font-weight:700;font-size:0.88rem;padding:10px 22px;border:none;border-radius:6px;cursor:pointer;white-space:nowrap}
+.demo-results{display:flex;flex-direction:column;gap:10px}
+.demo-row{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:16px;animation:fadeIn 0.4s ease both}
+.demo-row:nth-child(2){animation-delay:0.1s}
+.demo-row:nth-child(3){animation-delay:0.2s}
+.demo-avatar{width:38px;height:38px;border-radius:8px;background:var(--green-glow);border:1px solid rgba(0,229,160,0.2);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+.demo-info{flex:1;min-width:0}
+.demo-name{font-weight:600;font-size:0.9rem;margin-bottom:2px}
+.demo-meta{font-size:0.75rem;color:var(--muted2)}
+.demo-email{font-size:0.78rem;color:var(--green);display:flex;align-items:center;gap:4px}
+.demo-stars{color:var(--amber);font-size:0.75rem}
+
+/* STATS */
+.stats{display:flex;justify-content:center;gap:0;max-width:900px;margin:0 auto 100px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:600px){.stats{flex-direction:column}}
+.stat{flex:1;text-align:center;padding:32px 20px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--green);display:block;margin-bottom:6px}
+.stat-label{font-size:0.83rem;color:var(--muted2)}
+
+/* FEATURES */
+.features{padding:0 20px 100px}
+.section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:600;text-align:center;margin-bottom:12px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;text-align:center;margin-bottom:60px;line-height:1.1}
+.features-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;transition:border-color 0.2s,transform 0.2s}
+.feature-card:hover{border-color:rgba(0,229,160,0.3);transform:translateY(-4px)}
+.feature-icon{font-size:2rem;margin-bottom:16px}
+.feature-card h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.feature-card p{font-size:0.9rem;color:var(--muted2);line-height:1.65}
+
+/* HOW IT WORKS */
+.how{padding:0 20px 100px}
+.steps{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:28px;padding:32px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--green-glow);min-width:60px;line-height:1;color:rgba(0,229,160,0.15)}
+.step-content h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.step-content p{font-size:0.9rem;color:var(--muted2);line-height:1.65}
+
+/* PRICING */
+.pricing{padding:0 20px 100px}
+.pricing-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;position:relative}
+.price-card.featured{border-color:var(--green);background:var(--green-glow)}
+.price-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--bg);font-size:0.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.price-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.price-amount{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;margin-bottom:4px}
+.price-amount span{font-size:1rem;font-weight:400;color:var(--muted)}
+.price-desc{font-size:0.82rem;color:var(--muted2);margin-bottom:24px}
+.price-features{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.price-features li{font-size:0.88rem;color:var(--muted2);display:flex;align-items:center;gap:8px}
+.price-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.price-btn{display:block;text-align:center;background:var(--green);color:var(--bg);font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;padding:13px;border-radius:8px;text-decoration:none;transition:background 0.15s}
+.price-btn:hover{background:var(--green-dim)}
+.price-btn.outline{background:transparent;border:1px solid var(--border2);color:var(--text)}
+.price-btn.outline:hover{border-color:var(--green);color:var(--green);background:transparent}
+
+/* TESTIMONIALS */
+.testimonials{padding:0 20px 100px}
+.testimonials-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.testimonial{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
+.testimonial-stars{color:var(--amber);font-size:0.9rem;margin-bottom:14px;letter-spacing:2px}
+.testimonial-text{font-size:0.9rem;color:var(--muted2);line-height:1.7;margin-bottom:20px}
+.testimonial-author{font-weight:600;font-size:0.88rem}
+.testimonial-role{font-size:0.78rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{padding:0 20px 100px}
+.cta-box{max-width:700px;margin:0 auto;text-align:center;background:var(--green-glow);border:1px solid rgba(0,229,160,0.2);border-radius:16px;padding:60px 40px}
+.cta-box h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:14px}
+.cta-box p{color:var(--muted2);font-size:1rem;margin-bottom:32px;line-height:1.6}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+@media(max-width:768px){footer{padding:32px 20px;flex-direction:column;text-align:center}}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--text)}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color 0.15s}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:0.8rem;color:var(--muted)}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Lead<span>Harvest</span></a>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#how" class="nav-link">How it works</a>
+  </div>
+  <div class="nav-btns">
+    <a href="/login" class="btn-ghost">Log in</a>
+    <a href="/register" class="btn-cta">Try free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-badge">⚡ AI-Powered Lead Generation</div>
+  <h1>Turn Google Maps into<em>a leads machine</em></h1>
+  <p class="hero-sub">Find local businesses with <strong>emails, phone numbers and social profiles</strong> extracted automatically by AI. Export to CSV in seconds.</p>
+  <div class="hero-btns">
+    <a href="/register" class="btn-primary">🚀 Try free for 7 days</a>
+    <a href="#how" class="btn-secondary">See how it works</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item"><span class="trust-icon">✓</span> No credit card required</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> 7-day free trial</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Cancel anytime</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> GDPR compliant</div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<div class="demo-section">
+  <div class="demo-card">
+    <div class="demo-bar">
+      <div class="demo-dot" style="background:#ff5f57"></div>
+      <div class="demo-dot" style="background:#febc2e"></div>
+      <div class="demo-dot" style="background:#28c840"></div>
+      <div class="demo-url">lead-harvest-production.up.railway.app/app</div>
+    </div>
+    <div class="demo-body">
+      <div class="demo-search">
+        <input class="demo-input" value="plumber" readonly/>
+        <input class="demo-input" value="Manchester, UK" readonly/>
+        <button class="demo-btn">🔍 Search</button>
+      </div>
+      <div class="demo-results">
+        <div class="demo-row">
+          <div class="demo-avatar">🔧</div>
+          <div class="demo-info">
+            <div class="demo-name">City Plumbing Services Ltd</div>
+            <div class="demo-meta">📍 Manchester · 📞 0161 234 5678</div>
+          </div>
+          <div>
+            <div class="demo-email">✉ info@cityplumbing.co.uk</div>
+            <div class="demo-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-avatar">🔧</div>
+          <div class="demo-info">
+            <div class="demo-name">Northern Pipes & Heating</div>
+            <div class="demo-meta">📍 Salford · 📞 0161 876 5432</div>
+          </div>
+          <div>
+            <div class="demo-email">✉ hello@northernpipes.co.uk</div>
+            <div class="demo-stars">★★★★☆</div>
+          </div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-avatar">🔧</div>
+          <div class="demo-info">
+            <div class="demo-name">Mancunian Plumbers</div>
+            <div class="demo-meta">📍 Trafford · 📞 07700 900123</div>
+          </div>
+          <div>
+            <div class="demo-email">✉ contact@mancunianplumbers.com</div>
+            <div class="demo-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="padding:0 20px;margin-bottom:100px">
+  <div class="stats">
+    <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Leads per search</span></div>
+    <div class="stat"><span class="stat-num">AI</span><span class="stat-label">Email extraction</span></div>
+    <div class="stat"><span class="stat-num">195</span><span class="stat-label">Countries covered</span></div>
+    <div class="stat"><span class="stat-num">CSV</span><span class="stat-label">Instant export</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">Everything you need to<br/>find and close leads</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Search any business type</h3>
+      <p>Search by business type and location across the UK and 195 countries. Get up to 60 results per search with full contact details.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI email extraction</h3>
+      <p>Our AI reads every business website and automatically extracts email addresses, owner names, and social media profiles.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Export to CSV instantly</h3>
+      <p>Download your leads as a clean CSV file with one click. Ready to import into any CRM, email tool or spreadsheet.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Advanced filters</h3>
+      <p>Filter by rating, phone number, website presence and more. Find businesses with no website — perfect for web designers.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>Social profiles included</h3>
+      <p>Get Facebook, Instagram, LinkedIn, Twitter and TikTok profiles alongside email and phone — everything you need to reach out.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <h3>Always fresh data</h3>
+      <p>Data is fetched live from Google every time you search — not from an old database. You always get current, accurate results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div style="max-width:800px;margin:0 auto">
+    <div class="section-label" style="text-align:left">How it works</div>
+    <h2 class="section-title" style="text-align:left;margin-bottom:40px">Three steps to<br/>your next customer</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Search for businesses</h3>
+        <p>Enter any business type (plumber, dentist, web designer) and any location. We search Google Places live and return up to 60 matching businesses with phone numbers, addresses and ratings.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>AI enriches the data</h3>
+        <p>Click "Enrich All Leads" and our AI visits every business website automatically, extracting email addresses, owner names, and social media links. What used to take hours now takes seconds.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Export and reach out</h3>
+        <p>Download your leads as a CSV file and import them into your CRM or email tool. Filter by email, phone, rating or website status to target exactly the right prospects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">Simple, honest pricing</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-name">Free</div>
+      <div class="price-amount">£0<span>/mo</span></div>
+      <div class="price-desc">Try before you buy</div>
+      <ul class="price-features">
+        <li>10 leads per month</li>
+        <li>5 AI enrichments</li>
+        <li>CSV export</li>
+        <li>All search filters</li>
+      </ul>
+      <a href="/register" class="price-btn outline">Get started free</a>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Starter</div>
+      <div class="price-amount">£19<span>/mo</span></div>
+      <div class="price-desc">For freelancers & solo prospectors</div>
+      <ul class="price-features">
+        <li>500 leads per month</li>
+        <li>100 AI enrichments</li>
+        <li>CSV export</li>
+        <li>All search filters</li>
+        <li>Email support</li>
+      </ul>
+      <a href="/register" class="price-btn outline">Start free trial</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-popular">Most Popular</div>
+      <div class="price-name">Pro</div>
+      <div class="price-amount">£49<span>/mo</span></div>
+      <div class="price-desc">For agencies & sales teams</div>
+      <ul class="price-features">
+        <li>2,000 leads per month</li>
+        <li>300 AI enrichments</li>
+        <li>CSV export</li>
+        <li>All search filters</li>
+        <li>Priority support</li>
+        <li>Monthly credit reset</li>
+      </ul>
+      <a href="/register" class="price-btn">Start free trial →</a>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Agency</div>
+      <div class="price-amount">£149<span>/mo</span></div>
+      <div class="price-desc">For high-volume users</div>
+      <ul class="price-features">
+        <li>Unlimited leads</li>
+        <li>Unlimited AI enrichments</li>
+        <li>CSV export</li>
+        <li>All search filters</li>
+        <li>White-label option</li>
+        <li>API access</li>
+      </ul>
+      <a href="/register" class="price-btn outline">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label">Testimonials</div>
+  <h2 class="section-title">What our customers say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I was going to pay a VA to scrape 400 companies. LeadHarvest did it in under 10 minutes. Absolutely game changing for prospecting."</p>
+      <div class="testimonial-author">James T.</div>
+      <div class="testimonial-role">Freelance Web Designer, Manchester</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The AI email extraction is incredible. We used to spend hours manually finding contact details — now it's done automatically while we drink our morning coffee."</p>
+      <div class="testimonial-author">Sarah K.</div>
+      <div class="testimonial-role">Director, Digital Marketing Agency</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Filter for businesses with no website, export their details, pitch them. Signed 3 new web design clients in the first week. Worth every penny."</p>
+      <div class="testimonial-author">Marcus R.</div>
+      <div class="testimonial-role">Web Designer, Birmingham</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box">
+    <h2>Ready to find your next customer?</h2>
+    <p>Join thousands of sales teams, agencies and freelancers using LeadHarvest to fill their pipeline. Try free for 7 days — no credit card required.</p>
+    <a href="/register" class="btn-primary">🚀 Start for free today</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Lead<span>Harvest</span></div>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#how">How it works</a>
+    <a href="/login">Login</a>
+    <a href="/register">Sign up</a>
+  </div>
+  <div class="footer-copy">© 2025 LeadHarvest · All rights reserved</div>
+</footer>
+
+</body>
+</html>
