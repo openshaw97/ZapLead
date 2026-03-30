@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Create Account — LeadHarvest</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#05080d;--s1:#0b0f16;--s2:#111620;--b1:#1a2030;--b2:#232d40;--green:#22c55e;--green2:#16a34a;--green-g:rgba(34,197,94,0.08);--text:#f0f4f8;--t2:#8fa3bf;--t3:#4a5a6e;--red:#ef4444}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(34,197,94,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:58px;border-bottom:1px solid var(--b1);position:relative;z-index:1}
+.logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+.logo em{color:var(--green);font-style:normal}
+.nav-link{color:var(--t2);font-size:0.85rem;text-decoration:none}
+.nav-link:hover{color:var(--text)}
+.main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;gap:52px;position:relative;z-index:1}
+@media(max-width:800px){.main{flex-direction:column;gap:28px}}
+.perks{max-width:340px}
+.perks h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:8px;line-height:1.2;letter-spacing:-0.5px}
+.perks h2 em{color:var(--green);font-style:normal}
+.perks p{font-size:0.85rem;color:var(--t2);margin-bottom:22px;line-height:1.6}
+.perk-list{display:flex;flex-direction:column;gap:10px}
+.perk{display:flex;align-items:center;gap:10px;font-size:0.84rem;color:var(--t2)}
+.perk-ic{width:30px;height:30px;background:var(--green-g);border:1px solid rgba(34,197,94,0.2);border-radius:6px;display:grid;place-items:center;font-size:0.85rem;flex-shrink:0}
+.box{background:var(--s1);border:1px solid var(--b2);border-radius:14px;padding:36px;width:100%;max-width:390px}
+.box-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:4px}
+.box-sub{font-size:0.8rem;color:var(--t2);margin-bottom:24px}
+.field{margin-bottom:13px}
+label{display:block;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:5px;font-weight:600}
+input{width:100%;background:var(--s2);border:1px solid var(--b2);border-radius:6px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.92rem;padding:11px 14px;outline:none;transition:border-color 0.15s}
+input:focus{border-color:var(--green)}
+input::placeholder{color:var(--t3)}
+.btn{width:100%;background:var(--green);color:#000;font-family:'Syne',sans-serif;font-size:0.98rem;font-weight:800;padding:12px;border:none;border-radius:7px;cursor:pointer;margin-top:6px;transition:background 0.15s;display:flex;align-items:center;justify-content:center;gap:7px}
+.btn:hover{background:var(--green2)}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+.err{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:6px;padding:9px 13px;font-size:0.82rem;color:var(--red);margin-bottom:13px;display:none}
+.err.show{display:block}
+.terms{font-size:0.72rem;color:var(--t3);text-align:center;margin-top:12px;line-height:1.5}
+.switch{text-align:center;font-size:0.82rem;color:var(--t2);margin-top:14px}
+.switch a{color:var(--green);text-decoration:none;font-weight:500}
+.spin{width:14px;height:14px;border:2px solid rgba(0,0,0,0.2);border-top-color:#000;border-radius:50%;animation:spin 0.7s linear infinite;display:none}
+.loading .spin{display:block}.loading .bt{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<nav><a href="/" class="logo">Lead<em>Harvest</em></a><a href="/login" class="nav-link">Already have an account? Sign in</a></nav>
+<div class="main">
+  <div class="perks">
+    <h2>Find business leads<em> in seconds</em></h2>
+    <p>Phone numbers, addresses and ratings for any business type in any UK location. Export to CSV and start calling.</p>
+    <div class="perk-list">
+      <div class="perk"><div class="perk-ic">📞</div>Phone numbers included on every result</div>
+      <div class="perk"><div class="perk-ic">🚫</div>Filter for businesses with NO website</div>
+      <div class="perk"><div class="perk-ic">⬇️</div>Export your leads to CSV instantly</div>
+      <div class="perk"><div class="perk-ic">💾</div>Save leads to your account</div>
+      <div class="perk"><div class="perk-ic">💳</div>Free to start — no card needed</div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="box-title">Create your free account</div>
+    <div class="box-sub">Start finding leads in under 2 minutes</div>
+    <div class="err" id="err"></div>
+    <div class="field"><label>Your Name</label><input type="text" id="name" placeholder="John Smith" autofocus/></div>
+    <div class="field"><label>Email</label><input type="email" id="email" placeholder="you@example.com"/></div>
+    <div class="field"><label>Password</label><input type="password" id="pw" placeholder="At least 6 characters"/></div>
+    <button class="btn" id="btn" onclick="doRegister()"><div class="spin"></div><span class="bt">Create Free Account →</span></button>
+    <div class="terms">By signing up you agree to our terms of service.</div>
+    <div class="switch">Already have an account? <a href="/login">Sign in</a></div>
+  </div>
+</div>
+<script>
+async function doRegister(){
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const pw=document.getElementById('pw').value;
+  if(!name||!email||!pw){showErr('Please fill in all fields');return;}
+  const btn=document.getElementById('btn');
+  btn.disabled=true;btn.classList.add('loading');hideErr();
+  try{
+    const r=await fetch('/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pw})});
+    const d=await r.json();
+    if(!r.ok)throw new Error(d.error);
+    localStorage.setItem('lh_token',d.token);
+    window.location.href='/app';
+  }catch(e){showErr(e.message);btn.disabled=false;btn.classList.remove('loading');}
+}
+function showErr(m){const e=document.getElementById('err');e.textContent=m;e.classList.add('show');}
+function hideErr(){document.getElementById('err').classList.remove('show');}
+document.addEventListener('keydown',e=>{if(e.key==='Enter')doRegister();});
+</script>
+</body>
+</html>
