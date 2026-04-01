@@ -176,12 +176,17 @@ tr:last-child td{border-bottom:none}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .fade-in{animation:fadeIn 0.25s ease both}
 </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo">Zap<em>Lead</em></div>
+  <div class="logo" style="display:flex;align-items:center"><svg width="140" height="36" viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" x="0" y="2" rx="7" fill="#22c55e"/>
+  <polygon points="20,5 12,19 17,19 14,30 23,16 17,16" fill="#05080d"/>
+  <text x="40" y="25" font-family="Syne,Inter,sans-serif" font-weight="800" font-size="22" fill="#f0f4f8" letter-spacing="-0.5">Zap<tspan fill="#22c55e">Lead</tspan></text>
+</svg></div>
   <div class="topbar-right">
     <div class="credit-badge" id="creditBadge">⚡ <strong id="creditsLeft">—</strong> <span id="creditLabel">export credits left</span></div>
     <div style="position:relative">
