@@ -319,7 +319,7 @@ app.get('/api/place-details', auth, async (req, res) => {
     const r = await axios.get('https://maps.googleapis.com/maps/api/place/details/json', {
       params: {
         place_id: req.query.place_id,
-        fields: 'name,formatted_phone_number,website,opening_hours,formatted_address,rating,user_ratings_total,types,business_status',
+        fields: 'name,formatted_phone_number,website,formatted_address,rating,user_ratings_total,types',
         key: GOOGLE_KEY
       }
     });
