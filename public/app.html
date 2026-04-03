@@ -690,15 +690,15 @@ async function runSearch() {
       id: pl.place_id,
       name: pl.name,
       category: (pl.types || ['business'])[0].replace(/_/g, ' '),
-      phone: null,    // fetched on export
-      website: null,  // fetched on export
+      phone: null,    // fetched on export — blurred until then
+      website: null,  // fetched on export — shown as locked until then
       address: pl.vicinity || null,
       rating: pl.rating || null,
       reviews: pl.user_ratings_total || 0,
       isOpen: pl.opening_hours ? (pl.opening_hours.open_now ? 'open' : 'closed') : 'unknown',
       lat: pl.geometry?.location?.lat,
       lng: pl.geometry?.location?.lng,
-      place_id: pl.place_id, // keep for detail fetch on export
+      place_id: pl.place_id,
     }));
 
     allResults = minR > 0 ? detailed.filter(r => r.rating && r.rating >= minR) : detailed;
@@ -777,7 +777,9 @@ function renderTable() {
 
     const webH = b.website
       ? `<a class="web-link" href="${esc(b.website)}" target="_blank">${esc(b.website.replace(/https?:\/\/(www\.)?/, '').split('/')[0])}</a>`
-      : `<span class="no-web-badge">NO WEBSITE</span>`;
+      : exportedIds.has(b.id)
+        ? `<span class="no-web-badge">NO WEBSITE</span>`
+        : `<span style="font-size:0.78rem;color:var(--t3);cursor:pointer" onclick="promptExport()" title="Export to reveal website">🔒 Revealed on export</span>`;
 
     const statusH = b.isOpen === 'open'
       ? `<span class="spill s-open"><span class="sdot"></span>Open</span>`
