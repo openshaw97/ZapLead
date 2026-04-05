@@ -20,6 +20,53 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <!-- Blog -->
+  <url>
+    <loc>https://www.zaplead.co.uk/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/b2b-lead-generation-tool-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/automated-lead-generation-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/telecoms-sales-leads-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/lead-generation-software-sales-teams-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/prospecting-tool-freelance-sales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/b2b-leads-web-designers-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/uk-business-lead-finder</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.zaplead.co.uk/blog/sales-prospecting-software-small-business-uk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- SEO location pages -->
   <url>
     <loc>https://www.zaplead.co.uk/leads/plumber/london</loc>
     <changefreq>weekly</changefreq>
