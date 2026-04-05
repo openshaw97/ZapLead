@@ -55,6 +55,13 @@ const STRIPE_PRICES = {
 };
 
 app.use(compression()); // gzip compression for better performance and SEO
+// Redirect non-www to www
+app.use((req, res, next) => {
+  if (req.headers.host === 'zaplead.co.uk') {
+    return res.redirect(301, 'https://www.zaplead.co.uk' + req.url);
+  }
+  next();
+});
 app.use('/api/stripe/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
