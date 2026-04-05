@@ -120,18 +120,6 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 tr:last-child td{border-bottom:none}
 .biz-name{font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px}
 .biz-cat{font-size:0.72rem;color:var(--t3);margin-top:2px;text-transform:capitalize}
-.onboard-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
-.onboard-box{background:var(--s1);border:1px solid var(--b2);border-radius:16px;max-width:480px;width:100%;padding:36px;text-align:center}
-.onboard-logo{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text);margin-bottom:6px}
-.onboard-logo em{color:var(--green);font-style:normal}
-.onboard-steps{display:flex;flex-direction:column;gap:14px;margin:24px 0;text-align:left}
-.onboard-step{display:flex;align-items:flex-start;gap:14px;background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:14px}
-.onboard-step-num{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.onboard-step-text h4{font-size:0.88rem;font-weight:600;margin-bottom:3px}
-.onboard-step-text p{font-size:0.78rem;color:var(--t2);margin:0}
-.onboard-btn{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-weight:800;font-size:0.95rem;padding:13px 32px;border-radius:8px;border:none;cursor:pointer;width:100%;margin-top:8px}
-.onboard-btn:hover{background:var(--green2)}
-.onboard-credits{font-size:0.78rem;color:var(--t3);margin-top:10px}
 .no-web-badge{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:var(--amber);font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.5px;white-space:nowrap}
 .phone-link{color:var(--green);text-decoration:none;font-weight:500;font-size:0.83rem;white-space:nowrap}
 .phone-blur{color:var(--green);font-size:0.83rem;filter:blur(4px);user-select:none;cursor:pointer;white-space:nowrap;transition:filter 0.2s}
@@ -335,26 +323,8 @@ tr:last-child td{border-bottom:none}
             <option value="photographer">Photographer</option>
             <option value="videographer">Videographer</option>
             <option value="IT support">IT Support</option>
-            <option value="telecoms">Telecoms Company</option>
-            <option value="business telecoms">Business Telecoms</option>
-            <option value="VoIP provider">VoIP Provider</option>
-            <option value="solar panels">Solar Panel Company</option>
-            <option value="energy broker">Energy Broker</option>
-            <option value="card payment">Card Payment Company</option>
-            <option value="CCTV installation">CCTV Installation</option>
-            <option value="alarm system">Alarm System Company</option>
             <option value="printing company">Printing Company</option>
             <option value="sign maker">Sign Maker</option>
-            <option value="vehicle wrap">Vehicle Wrap Company</option>
-            <option value="PR agency">PR Agency</option>
-            <option value="social media agency">Social Media Agency</option>
-            <option value="SEO agency">SEO Agency</option>
-            <option value="lettings agency">Lettings Agency</option>
-            <option value="property management">Property Management</option>
-            <option value="courier company">Courier Company</option>
-            <option value="logistics company">Logistics Company</option>
-            <option value="wholesaler">Wholesaler</option>
-            <option value="manufacturer">Manufacturer</option>
           </optgroup>
           <optgroup label="Education & Childcare">
             <option value="nursery">Nursery / Childcare</option>
@@ -1074,38 +1044,5 @@ function toast(msg, ok) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Enter' && document.activeElement.id === 'location') runSearch(); });
 </script>
-
-<!-- Onboarding Modal -->
-<div class="onboard-overlay" id="onboardOverlay" style="display:none">
-  <div class="onboard-box">
-    <div class="onboard-logo">Zap<em>Lead</em></div>
-    <p style="font-size:0.85rem;color:var(--t2);margin-bottom:4px">Welcome! Here's how to get started</p>
-    <div class="onboard-steps">
-      <div class="onboard-step">
-        <div class="onboard-step-num">1</div>
-        <div class="onboard-step-text">
-          <h4>Choose a business type</h4>
-          <p>Select what kind of businesses you want to find — plumbers, telecoms, web designers and more</p>
-        </div>
-      </div>
-      <div class="onboard-step">
-        <div class="onboard-step-num">2</div>
-        <div class="onboard-step-text">
-          <h4>Enter a UK location</h4>
-          <p>Type any UK town, city or postcode — ZapLead searches the whole area automatically</p>
-        </div>
-      </div>
-      <div class="onboard-step">
-        <div class="onboard-step-num">3</div>
-        <div class="onboard-step-text">
-          <h4>Export your leads</h4>
-          <p>Click Export CSV to download phone numbers, addresses and ratings — ready to call</p>
-        </div>
-      </div>
-    </div>
-    <button class="onboard-btn" onclick="closeOnboard()">Start finding leads →</button>
-    <div class="onboard-credits">You have <strong>50 free exports</strong> — no card needed</div>
-  </div>
-</div>
 </body>
 </html>
