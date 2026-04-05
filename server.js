@@ -470,12 +470,19 @@ app.get('/blog/:slug', (req, res) => {
   if (fs.existsSync(file)) res.sendFile(file);
   else res.redirect('/blog');
 });
-// SEO location pages
-app.get('/leads/:biz/:city', (req, res) => {
-  const file = path.join(__dirname, 'public', 'leads', req.params.biz, req.params.city + '.html');
+// ── LEADS SEO PAGES ──
+app.get('/sitemap-leads.xml', (req, res) => res.sendFile(path.join(__dirname, 'public', 'sitemap-leads.xml')));
+app.get('/leads/:businessType', (req, res) => {
   const fs = require('fs');
+  const file = path.join(__dirname, 'public', 'leads', req.params.businessType, 'index.html');
   if (fs.existsSync(file)) res.sendFile(file);
-  else res.redirect('/register');
+  else res.redirect('/');
+});
+app.get('/leads/:businessType/:city', (req, res) => {
+  const fs = require('fs');
+  const file = path.join(__dirname, 'public', 'leads', req.params.businessType, req.params.city, 'index.html');
+  if (fs.existsSync(file)) res.sendFile(file);
+  else res.redirect('/leads/' + req.params.businessType);
 });
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
