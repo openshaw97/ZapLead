@@ -455,14 +455,6 @@ app.get('/pricing', (req, res) => res.sendFile(path.join(__dirname, 'public', 'p
 app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'public', 'sitemap.xml')));
 app.get('/robots.txt', (req, res) => res.sendFile(path.join(__dirname, 'public', 'robots.txt')));
 app.get('/app', (req, res) => res.sendFile(path.join(__dirname, 'public', 'app.html')));
-// ── BLOG ROUTES ──
-app.get('/blog', (req, res) => res.sendFile(path.join(__dirname, 'public', 'blog', 'index.html')));
-app.get('/blog/:slug', (req, res) => {
-  const fs = require('fs');
-  const file = path.join(__dirname, 'public', 'blog', req.params.slug + '.html');
-  if (fs.existsSync(file)) res.sendFile(file);
-  else res.redirect('/blog');
-});
 // SEO location pages
 app.get('/leads/:biz/:city', (req, res) => {
   const file = path.join(__dirname, 'public', 'leads', req.params.biz, req.params.city + '.html');

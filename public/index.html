@@ -1,156 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog | ZapLead — UK B2B Lead Generation Tips</title>
-  <meta name="description" content="Sales tips, lead generation strategies, and prospecting guides for UK sales teams, telecoms resellers, and freelance sales consultants."/>
-  <link rel="canonical" href="https://zaplead.co.uk/blog"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #060b18; --surface: #0d1625; --border: #1a2640;
-      --accent: #3b82f6; --text: #e2e8f0; --muted: #64748b;
-      --heading-font: 'Syne', sans-serif; --body-font: 'DM Sans', sans-serif;
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZapLead — Hundreds of UK Business Leads Ready to Call | Google Maps Lead Generation</title>
+<meta name="description" content="ZapLead finds hundreds of local UK business leads from Google Maps in seconds. Phone numbers, addresses, ratings and website status. Filter by no website. Export to CSV instantly. Free to try."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#05080d;--s1:#0b0f16;--s2:#111620;--s3:#181e2a;--b1:#1a2030;--b2:#232d40;--green:#22c55e;--green2:#16a34a;--green-g:rgba(34,197,94,0.08);--text:#f0f4f8;--t2:#8fa3bf;--t3:#4a5a6e;--amber:#f59e0b}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+a{text-decoration:none}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:62px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,8,13,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.04)}
+@media(max-width:768px){nav{padding:0 20px}}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text)}
+.nav-logo em{color:var(--green);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:28px}
+@media(max-width:768px){.nav-links a:not(.btn-cta){display:none}}
+.nav-link{color:var(--t2);font-size:0.88rem;font-weight:500;transition:color 0.15s}
+.nav-link:hover{color:var(--text)}
+.nav-btns{display:flex;gap:10px;align-items:center}
+.btn-ghost{color:var(--t2);font-size:0.85rem;font-weight:500;padding:7px 16px;border-radius:6px;transition:all 0.15s}
+.btn-ghost:hover{background:var(--s2);color:var(--text)}
+.btn-cta{background:var(--green);color:#000;font-size:0.85rem;font-weight:700;padding:8px 20px;border-radius:6px;transition:background 0.15s}
+.btn-cta:hover{background:var(--green2)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px 60px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(34,197,94,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-glow{position:absolute;top:30%;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(34,197,94,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--green-g);border:1px solid rgba(34,197,94,0.2);color:var(--green);font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.pulse{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;max-width:820px}
+h1 em{color:var(--green);font-style:normal}
+.hero-sub{font-size:1.1rem;color:var(--t2);line-height:1.7;max-width:540px;margin:0 auto 36px;font-weight:400}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.btn-primary{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;padding:14px 34px;border-radius:8px;transition:all 0.15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);font-size:0.95rem;font-weight:500;padding:13px 28px;border-radius:8px;border:1px solid var(--b2);transition:all 0.15s}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.hero-proof{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.proof-item{display:flex;align-items:center;gap:7px;font-size:0.82rem;color:var(--t3)}
+.proof-icon{color:var(--green)}
+
+/* DEMO */
+.demo-wrap{padding:0 20px 80px;max-width:860px;margin:0 auto}
+.demo-card{background:var(--s1);border:1px solid var(--b2);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.5)}
+.demo-titlebar{background:var(--s2);padding:12px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--b1)}
+.demo-dot{width:11px;height:11px;border-radius:50%}
+.demo-url{flex:1;background:var(--bg);border-radius:5px;padding:5px 14px;font-size:0.75rem;color:var(--t3);font-family:monospace;margin:0 12px}
+.demo-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+.demo-table th{background:var(--s3);padding:10px 14px;text-align:left;color:var(--t3);font-size:0.68rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--b1)}
+.demo-table td{padding:12px 14px;border-bottom:1px solid var(--b1);color:var(--t2)}
+.demo-table td:first-child{color:var(--text);font-weight:500}
+.demo-phone{color:var(--green);font-weight:500}
+.demo-noweb{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:var(--amber);font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:4px}
+.demo-stars{color:var(--amber)}
+
+/* STATS */
+.stats-row{display:flex;justify-content:center;max-width:900px;margin:0 auto 80px;border:1px solid var(--b1);border-radius:12px;overflow:hidden}
+@media(max-width:600px){.stats-row{flex-wrap:wrap}}
+.stat{flex:1;text-align:center;padding:28px 16px;border-right:1px solid var(--b1)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--green);display:block;margin-bottom:4px}
+.stat-l{font-size:0.8rem;color:var(--t3)}
+
+/* FEATURES */
+.features{padding:0 20px 80px;max-width:1080px;margin:0 auto}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;text-align:center;margin-bottom:10px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;margin-bottom:48px;letter-spacing:-0.5px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feat-card{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:28px;transition:border-color 0.2s,transform 0.2s}
+.feat-card:hover{border-color:rgba(34,197,94,0.3);transform:translateY(-3px)}
+.feat-icon{font-size:1.8rem;margin-bottom:14px}
+.feat-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.feat-card p{font-size:0.85rem;color:var(--t2);line-height:1.65}
+.feat-highlight{background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.2)}
+
+/* USE CASES */
+.usecases{padding:0 20px 80px;max-width:900px;margin:0 auto}
+.usecase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.usecase{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:22px}
+.usecase-who{font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
+.usecase h3{font-size:0.98rem;font-weight:600;margin-bottom:8px}
+.usecase p{font-size:0.82rem;color:var(--t2);line-height:1.6}
+
+/* PRICING */
+.pricing{padding:0 20px 80px;max-width:1000px;margin:0 auto}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.price-grid{grid-template-columns:1fr}}
+.price-card{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:24px;position:relative}
+.price-card.hot{border-color:var(--green)}
+.price-pop{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:#000;font-size:0.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.price-tier{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);font-weight:600;margin-bottom:10px}
+.price-amt{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;line-height:1;margin-bottom:2px}
+.price-amt span{font-size:0.9rem;font-weight:400;color:var(--t2)}
+.price-leads{font-size:0.82rem;color:var(--t2);margin-bottom:18px}
+.price-leads strong{color:var(--text)}
+.price-feats{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:7px}
+.price-feats li{font-size:0.8rem;color:var(--t2);display:flex;align-items:center;gap:7px}
+.price-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.price-btn{display:block;text-align:center;padding:11px;border-radius:7px;font-weight:700;font-size:0.88rem;transition:all 0.15s}
+.price-btn.solid{background:var(--green);color:#000}
+.price-btn.solid:hover{background:var(--green2)}
+.price-btn.ghost{border:1px solid var(--b2);color:var(--t2)}
+.price-btn.ghost:hover{border-color:var(--green);color:var(--green)}
+
+/* TESTIMONIALS */
+.testimonials{padding:0 20px 80px;max-width:1000px;margin:0 auto}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.test-card{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:24px}
+.test-stars{color:var(--amber);font-size:0.85rem;margin-bottom:12px;letter-spacing:2px}
+.test-text{font-size:0.85rem;color:var(--t2);line-height:1.7;margin-bottom:16px}
+.test-author{font-weight:600;font-size:0.85rem}
+.test-role{font-size:0.75rem;color:var(--t3)}
+
+/* CTA */
+.cta-sec{padding:0 20px 80px;max-width:700px;margin:0 auto;text-align:center}
+.cta-box{background:var(--green-g);border:1px solid rgba(34,197,94,0.15);border-radius:16px;padding:52px 36px}
+.cta-box h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:12px;letter-spacing:-0.5px}
+.cta-box p{color:var(--t2);font-size:0.95rem;margin-bottom:28px;line-height:1.6}
+
+footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:768px){footer{padding:28px 20px;flex-direction:column;text-align:center}}
+.foot-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800}
+.foot-logo em{color:var(--green);font-style:normal}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.foot-links a{color:var(--t3);font-size:0.82rem;transition:color 0.15s}
+.foot-links a:hover{color:var(--text)}
+.foot-copy{font-size:0.78rem;color:var(--t3)}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+</style>
+<meta name="keywords" content="business leads UK, local business leads, cold calling leads, lead generation UK, google maps leads, phone number leads"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="ZapLead — Find Local Business Leads for Cold Calling | UK Lead Generation"/>
+<meta property="og:description" content="Find hundreds of UK business leads instantly. Phone numbers, addresses and ratings from Google Maps. Filter by no website. Export to CSV. Perfect for cold calling and sales teams."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://zaplead.co.uk"/>
+<meta property="og:image" content="https://zaplead.co.uk/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ZapLead — Find Local Business Leads for Cold Calling | UK Lead Generation"/>
+<meta name="twitter:description" content="Find hundreds of UK business leads instantly. Phone numbers, addresses and ratings from Google Maps. Filter by no website. Export to CSV. Perfect for cold calling and sales teams."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ZapLead",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "UK business lead generation tool. Find local business leads with phone numbers, addresses and ratings from Google Maps. Export to CSV instantly.",
+  "url": "https://zaplead.co.uk",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Plan",
+      "price": "0",
+      "priceCurrency": "GBP",
+      "description": "50 one-off export credits"
+    },
+    {
+      "@type": "Offer",
+      "name": "Starter Plan",
+      "price": "29",
+      "priceCurrency": "GBP",
+      "description": "300 export credits per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Plan",
+      "price": "59",
+      "priceCurrency": "GBP",
+      "description": "1000 export credits per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise Plan",
+      "price": "149",
+      "priceCurrency": "GBP",
+      "description": "3000 export credits per month"
     }
-    body { background: var(--bg); color: var(--text); font-family: var(--body-font); -webkit-font-smoothing: antialiased; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(6,11,24,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .nav-logo { font-family: var(--heading-font); font-weight: 800; font-size: 1.4rem; color: #fff; text-decoration: none; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta { background: var(--accent); color: #fff; padding: 0.5rem 1.2rem; border-radius: 6px; font-size: 0.875rem; font-weight: 600; text-decoration: none; }
-
-    .hero { padding: 5rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
-    .hero h1 { font-family: var(--heading-font); font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; letter-spacing: -1.5px; color: #fff; margin-bottom: 1rem; }
-    .hero p { color: #94a3b8; font-size: 1.1rem; max-width: 540px; }
-
-    .posts-grid { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1.5rem; }
-    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; text-decoration: none; display: block; transition: border-color .2s, transform .2s; }
-    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .post-card-tag { display: inline-block; background: rgba(59,130,246,.15); color: var(--accent); border-radius: 4px; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 1rem; }
-    .post-card h2 { font-family: var(--heading-font); font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.35; margin-bottom: 0.75rem; }
-    .post-card p { color: #64748b; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
-    .post-card-meta { color: var(--muted); font-size: 0.8rem; display: flex; gap: 1rem; }
-    .read-more { color: var(--accent); font-size: 0.875rem; font-weight: 600; margin-top: 1rem; display: block; }
-
-    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.875rem; }
-    footer a { color: var(--muted); text-decoration: none; }
-    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
-    @media(max-width:640px){ .nav-links{display:none;} .posts-grid{grid-template-columns:1fr;} }
-  </style>
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "24"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I find local business leads in the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ZapLead pulls live data from Google Maps. Simply select a business type, enter a UK town or postcode, and get hundreds of businesses with phone numbers, addresses and ratings instantly. Export to CSV with one click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I filter for businesses with no website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ZapLead has a No Website filter that shows only businesses without a website listed on Google Maps. This is particularly useful for web designers and digital agencies looking to pitch new clients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is ZapLead GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We only provide publicly available business information from Google Maps. UK and EU law permits the collection and use of publicly available business contact information for commercial prospecting purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does ZapLead cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ZapLead starts free with 50 one-off export credits. Paid plans start from £29 per month for 300 exports, £59 per month for 1000 exports, or £149 per month for 3000 exports."
+      }
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="google-site-verification" content="jwWr7mSKuCZHAnKqXhtD33kqqoLGaNw_apEMOCByFfc" />
+<link rel="canonical" href="https://www.zaplead.co.uk/"/>
 </head>
 <body>
-  <nav>
-    <a href="/" class="nav-logo">Zap<span>Lead</span></a>
-    <ul class="nav-links">
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/login">Login</a></li>
-    </ul>
-    <a href="/register" class="nav-cta">Start Free</a>
-  </nav>
 
-  <div class="hero">
-    <h1>Lead Generation<br/>Insights for UK Sales</h1>
-    <p>Practical guides for telecoms sales teams, freelance consultants, and web designers looking to build a better pipeline.</p>
+<nav>
+  <a href="/" class="nav-logo">Zap<em>Lead</em></a>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#usecases" class="nav-link">Who it's for</a>
   </div>
-
-  <div class="posts-grid">
-    
-    <a href="/blog/b2b-lead-generation-tool-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>The Best B2B Lead Generation Tool for UK Businesses in 2026</h2>
-      <p>Manual prospecting wastes hours every week. Here's how UK sales teams are using automated B2B lead generation tools to fill their pipeline faster.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 6 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/automated-lead-generation-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>Automated Lead Generation UK: How to Build a Sales Pipeline on Autopilot</h2>
-      <p>Discover how UK sales teams and freelancers are using automated lead generation to build consistent pipelines without spending hours on manual research.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 5 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/telecoms-sales-leads-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>How to Find Telecoms Sales Leads in the UK: A Practical Guide</h2>
-      <p>Finding quality telecoms sales leads in the UK doesn't have to mean cold calling random numbers. Here's how modern telecoms resellers are building their pipeline.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 6 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/lead-generation-software-sales-teams-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>Lead Generation Software for UK Sales Teams: What Actually Works in 2026</h2>
-      <p>With hundreds of lead generation tools on the market, how do UK sales teams choose the right one? Here's an honest breakdown of what to look for.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 7 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/prospecting-tool-freelance-sales" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>The Best Prospecting Tool for Freelance Sales Consultants</h2>
-      <p>As a freelance sales consultant, your pipeline is everything. Here's how to build a consistent flow of qualified prospects without a marketing team behind you.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 5 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/b2b-leads-web-designers-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>How UK Web Designers Can Find B2B Leads and Win More Clients</h2>
-      <p>Referrals are unreliable. Here's how UK web designers and digital agencies can build a consistent pipeline of B2B leads and stop waiting for the phone to ring.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 6 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/uk-business-lead-finder" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>UK Business Lead Finder: How to Find Any Business Lead in the UK</h2>
-      <p>Looking for a reliable way to find UK business leads? Here's everything you need to know about sourcing, filtering and contacting B2B prospects in the UK.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 5 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
-    <a href="/blog/sales-prospecting-software-small-business-uk" class="post-card">
-      <div class="post-card-tag">Lead Generation</div>
-      <h2>Sales Prospecting Software for Small UK Businesses: What You Actually Need</h2>
-      <p>Small UK businesses don't need enterprise sales tools. Here's a practical guide to sales prospecting software that actually fits your budget and workflow.</p>
-      <div class="post-card-meta">
-        <span>📅 April 2026</span>
-        <span>⏱ 6 min read</span>
-      </div>
-      <span class="read-more">Read article →</span>
-    </a>
+  <div class="nav-btns">
+    <a href="/login" class="btn-ghost">Log in</a>
+    <a href="/register" class="btn-cta">Try free →</a>
   </div>
+</nav>
 
-  <footer>
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/register">Sign Up</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><span class="pulse"></span>Powered by Google Maps Data</div>
+  <h1>Hundreds of business leads<br>ready to <em>call today</em></h1>
+  <p class="hero-sub">Stop wasting hours searching Google Maps manually. ZapLead pulls <strong>phone numbers, addresses and ratings</strong> for any business type in any UK location — instantly exportable to CSV.</p>
+  <div class="hero-btns">
+    <a href="/register" class="btn-primary">🚀 Start free — no card needed</a>
+    <a href="#features" class="btn-outline">See how it works</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item"><span class="proof-icon">✓</span> Phone numbers included</div>
+    <div class="proof-item"><span class="proof-icon">✓</span> Export to CSV in one click</div>
+    <div class="proof-item"><span class="proof-icon">✓</span> Filter: No website businesses</div>
+    <div class="proof-item"><span class="proof-icon">✓</span> Search unlimited — pay to export</div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<div class="demo-wrap">
+  <div class="demo-card">
+    <div class="demo-titlebar">
+      <div class="demo-dot" style="background:#ff5f57"></div>
+      <div class="demo-dot" style="background:#febc2e"></div>
+      <div class="demo-dot" style="background:#28c840"></div>
+      <div class="demo-url">zaplead.co.uk/app — Plumber · Sheffield · 5km</div>
+      <span style="font-size:0.72rem;color:var(--green);font-weight:600">✅ 47 leads found</span>
     </div>
-    <p>© 2026 ZapLead · <a href="mailto:info@zaplead.co.uk">info@zaplead.co.uk</a></p>
-  </footer>
+    <table class="demo-table">
+      <thead><tr><th>Business</th><th>Phone</th><th>Website</th><th>Rating</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>City Plumbing Sheffield</td><td class="demo-phone">0114 234 5678</td><td style="color:#4a5a6e;font-size:0.78rem">cityplumbing.co.uk</td><td><span class="demo-stars">★★★★★</span> 4.9</td><td><span style="color:#22c55e;font-size:0.78rem">● Open</span></td></tr>
+        <tr><td>Northern Heating Co<br><span style="font-size:0.7rem;color:#4a5a6e">No website — pitch opportunity</span></td><td class="demo-phone">07700 900123</td><td><span class="demo-noweb">NO WEBSITE</span></td><td><span class="demo-stars">★★★★</span> 4.2</td><td><span style="color:#22c55e;font-size:0.78rem">● Open</span></td></tr>
+        <tr><td>S&amp;M Plumbing Services</td><td class="demo-phone">0114 876 5432</td><td style="color:#4a5a6e;font-size:0.78rem">smplumbing.co.uk</td><td><span class="demo-stars">★★★★★</span> 4.8</td><td><span style="color:#ef4444;font-size:0.78rem">● Closed</span></td></tr>
+        <tr style="opacity:0.35;filter:blur(3px)"><td>████████ ████████</td><td class="demo-phone">07███ ██████</td><td style="font-size:0.78rem">████████.co.uk</td><td><span class="demo-stars">★★★★</span> 4.1</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div style="padding:10px 14px;background:var(--s2);border-top:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between">
+      <span style="font-size:0.75rem;color:var(--t3)">🔒 Upgrade to see all 47 results</span>
+      <a href="/register" style="background:var(--green);color:#000;font-size:0.78rem;font-weight:700;padding:6px 16px;border-radius:5px">Get started free →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="padding:0 20px 80px;max-width:900px;margin:0 auto">
+  <div class="stats-row">
+    <div class="stat"><span class="stat-n">500+</span><span class="stat-l">Leads per search</span></div>
+    <div class="stat"><span class="stat-n">80+</span><span class="stat-l">Business categories</span></div>
+    <div class="stat"><span class="stat-n">Live</span><span class="stat-l">Fresh data every time</span></div>
+    <div class="stat"><span class="stat-n">CSV</span><span class="stat-l">One-click export</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="sec-label">Features</div>
+  <div class="sec-title">Everything a cold caller needs</div>
+  <div class="feat-grid">
+    <div class="feat-card feat-highlight">
+      <div class="feat-icon">📞</div>
+      <h3>Phone numbers, ready to dial</h3>
+      <p>Every result includes the business phone number where listed on Google. Click to call directly from the app, or export and load into your dialler.</p>
+    </div>
+    <div class="feat-card feat-highlight">
+      <div class="feat-icon">🚫</div>
+      <h3>"No Website" filter</h3>
+      <p>Instantly filter for businesses with no website — a goldmine for web designers, digital agencies and anyone selling online services. These businesses need you.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📍</div>
+      <h3>Bulk location search</h3>
+      <p>Search entire towns, cities or postcodes at once. Our grid search covers the full area — not just the first 20 Google results.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⭐</div>
+      <h3>Filter by rating</h3>
+      <p>Target businesses with high ratings who are doing well, or low ratings who need your services. Full control over who you reach.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⬇️</div>
+      <h3>Export to CSV instantly</h3>
+      <p>Download your full lead list as a CSV file. Drop it straight into Excel, your CRM, or your cold calling software.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💾</div>
+      <h3>Save leads to your account</h3>
+      <p>Save individual leads to your account to build a pipeline. Access your saved leads any time you log in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="usecases" id="usecases">
+  <div class="sec-label">Who it's for</div>
+  <div class="sec-title">Built for people who make calls</div>
+  <div class="usecase-grid">
+    <div class="usecase">
+      <div class="usecase-who">Web Designers</div>
+      <h3>Find businesses with no website</h3>
+      <p>Filter for the "No Website" badge and get a list of local businesses actively missing an online presence. Cold call them with a clear pitch.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">Sales Teams</div>
+      <h3>Territory-based prospecting</h3>
+      <p>Search any postcode or town and instantly get hundreds of local businesses with contact details. Divide territories and assign lead lists in minutes.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">Marketing Agencies</div>
+      <h3>Prospect for new clients at scale</h3>
+      <p>Find businesses in any niche, in any location. Export to CSV and run outreach campaigns. Works for cold calling or direct mail.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">Freelancers</div>
+      <h3>Find your next client this week</h3>
+      <p>Search your local area for the business type you serve. Get phone numbers and addresses. Pick up the phone and start conversations.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">Lead Gen Agencies</div>
+      <h3>Sell leads to local businesses</h3>
+      <p>Build targeted lead lists and sell them to businesses in specific trades. Use the "No Website" filter to find businesses who need digital services.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">Field Sales</div>
+      <h3>Plan your calling route</h3>
+      <p>Get a list of every business in a radius. Know their address, phone number and opening hours before you knock on the door.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="sec-label">Pricing</div>
+  <div class="sec-title">Simple monthly plans</div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-tier">Free</div>
+      <div class="price-amt">£0<span>/mo</span></div>
+      <div class="price-leads"><strong>50 one-off</strong> export credits</div>
+      <ul class="price-feats">
+        <li>All business categories</li>
+        <li>Phone & address data</li>
+        <li>CSV export</li>
+        <li>No website filter</li>
+      </ul>
+      <a href="/register" class="price-btn ghost">Get started free</a>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amt">£29<span>/mo</span></div>
+      <div class="price-leads"><strong>300</strong> export credits/month</div>
+      <ul class="price-feats">
+        <li>All business categories</li>
+        <li>Phone & address data</li>
+        <li>CSV export</li>
+        <li>No website filter</li>
+        <li>Save leads to account</li>
+      </ul>
+      <a href="/register" class="price-btn ghost">Upgrade Now</a>
+    </div>
+    <div class="price-card hot">
+      <div class="price-pop">Most Popular</div>
+      <div class="price-tier">Pro</div>
+      <div class="price-amt">£59<span>/mo</span></div>
+      <div class="price-leads"><strong>1,000</strong> export credits/month · 2 users</div>
+      <ul class="price-feats">
+        <li>Everything in Starter</li>
+        <li>Bulk area search</li>
+        <li>Priority data refresh</li>
+        <li>Monthly credit reset</li>
+      </ul>
+      <a href="/register" class="price-btn solid">Upgrade Now →</a>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Enterprise</div>
+      <div class="price-amt">£149<span>/mo</span></div>
+      <div class="price-leads"><strong>3,000</strong> export credits/month · 5 users</div>
+      <ul class="price-feats">
+        <li>Everything in Pro</li>
+        <li>Maximum grid coverage</li>
+        <li>Ideal for agencies</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="/register" class="price-btn ghost">Upgrade Now</a>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:0.82rem;color:var(--t3);margin-top:20px">All plans include a 7-day free trial. No credit card required to start.</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="sec-label">Testimonials</div>
+  <div class="sec-title">What our users say</div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"I searched 'plumber Sheffield' and had 40 phone numbers in front of me inside 2 minutes. Used to spend half a day doing this manually on Google Maps."</p>
+      <div class="test-author">James T.</div>
+      <div class="test-role">Lead Gen Agency, Sheffield</div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"The No Website filter is brilliant. I'm a web designer — I filter for businesses with no website in my town and I've got a ready-made cold call list."</p>
+      <div class="test-author">Sarah K.</div>
+      <div class="test-role">Freelance Web Designer</div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Our sales team uses it every Monday to build the week's calling list. Saves 3-4 hours of research per rep. Pays for itself 10x over."</p>
+      <div class="test-author">Marcus R.</div>
+      <div class="test-role">Sales Director, B2B Agency</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-box">
+    <h2>Start building your call list today</h2>
+    <p>Free to start. No credit card. Get your first 50 exports free — no card needed.</p>
+    <a href="/register" class="btn-primary">🚀 Get started free</a>
+    <p style="margin-top:16px;font-size:0.82rem;color:var(--t2)">Questions? Email us at <a href="mailto:info@zaplead.co.uk" style="color:var(--green)">info@zaplead.co.uk</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo" style="display:flex;align-items:center"><svg width="120" height="30" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+  <rect width="26" height="26" x="0" y="2" rx="6" fill="#22c55e"/>
+  <polygon points="17,4 10,16 15,16 12,26 20,13 14,13" fill="#05080d"/>
+  <text x="33" y="21" font-family="Syne,Inter,sans-serif" font-weight="800" font-size="18" fill="#f0f4f8" letter-spacing="-0.5">Zap<tspan fill="#22c55e">Lead</tspan></text>
+</svg></div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="/pricing">Pricing</a>
+    <a href="#features">Features</a>
+    <a href="/login">Login</a>
+    <a href="/register">Sign up</a>
+    <a href="mailto:info@zaplead.co.uk">info@zaplead.co.uk</a>
+  </div>
+  <div class="foot-copy">© 2025 ZapLead · All rights reserved</div>
+</footer>
+
 </body>
 </html>
