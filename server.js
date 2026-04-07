@@ -27,6 +27,7 @@ const userSchema = new mongoose.Schema({
   name:                 String,
   email:                { type: String, unique: true, lowercase: true, trim: true },
   password:             String,
+  phone:                { type: String, default: null },
   plan:                 { type: String, default: 'free' },
   leadsUsed:            { type: Number, default: 0 },
   lastReset:            { type: Date, default: Date.now },
@@ -95,7 +96,7 @@ function safeUser(u) {
   const leadsUsed = u.leadsUsed || 0;
   const leadsRemaining = Math.max(0, plan.leads - leadsUsed);
   return {
-    id: u.id, name: u.name, email: u.email,
+    id: u.id, name: u.name, email: u.email, phone: u.phone || null,
     plan: u.plan, planLabel: plan.label,
     exportCredits: plan.leads,
     leadsAllowed: plan.leads,
@@ -113,12 +114,12 @@ function safeUser(u) {
 // ════════════════════════════
 app.post('/api/auth/register', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
     if (!name || !email || !password) return res.status(400).json({ error: 'All fields required' });
     if (password.length < 6) return res.status(400).json({ error: 'Password must be at least 6 characters' });
     const existing = await User.findOne({ email: email.toLowerCase() });
     if (existing) return res.status(400).json({ error: 'Account already exists with this email' });
-    const user = await User.create({ name, email, password: await bcrypt.hash(password, 10) });
+    const user = await User.create({ name, email, password: await bcrypt.hash(password, 10), phone: phone || null });
     const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '30d' });
     res.json({ token, user: safeUser(user) });
   } catch(e) { res.status(500).json({ error: e.message }); }
