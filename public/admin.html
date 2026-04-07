@@ -87,7 +87,7 @@ tr:hover td{background:rgba(255,255,255,0.01)}
   <div class="table-wrap">
     <table>
       <thead><tr>
-        <th>User</th><th>Plan</th><th>Exports Used</th><th>Saved Leads</th><th>Joined</th><th>Change Plan</th><th>Actions</th>
+        <th>User</th><th>Phone</th><th>Plan</th><th>Exports Used</th><th>Saved Leads</th><th>Joined</th><th>Change Plan</th><th>Actions</th>
       </tr></thead>
       <tbody id="usersBody"></tbody>
     </table>
@@ -145,13 +145,14 @@ function renderStats() {
 
 function renderUsers(users) {
   const tbody = document.getElementById('usersBody');
-  if (!users.length) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--t3)">No users found</td></tr>'; return; }
+  if (!users.length) { tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:28px;color:var(--t3)">No users found</td></tr>'; return; }
   tbody.innerHTML = users.map(u => `
     <tr>
       <td>
         <div class="user-name">${esc(u.name)}</div>
         <div style="font-size:0.72rem;color:var(--t3)">${esc(u.email)}</div>
       </td>
+      <td style="font-size:0.78rem">${u.phone ? `<a href="tel:${esc(u.phone)}" style="color:var(--green);text-decoration:none">${esc(u.phone)}</a>` : '<span style="color:var(--t3)">—</span>'}</td>
       <td><span class="plan-badge plan-${u.plan}">${u.plan.toUpperCase()}</span></td>
       <td>${u.leadsUsed || 0}</td>
       <td>${u.savedLeads || 0}</td>
@@ -164,8 +165,9 @@ function renderUsers(users) {
           <option value="enterprise" ${u.plan==='enterprise'?'selected':''}>Enterprise £149</option>
         </select>
       </td>
-      <td>
+      <td style="display:flex;gap:6px;flex-wrap:wrap">
         <button class="action-btn" onclick="resetCredits('${u.id}')">Reset Credits</button>
+        <button class="action-btn danger" onclick="deleteUser('${u.id}', '${esc(u.name)}')">Delete</button>
       </td>
     </tr>
   `).join('');
@@ -190,6 +192,23 @@ async function changePlan(userId, plan) {
     if (u) u.plan = plan;
     renderStats();
     toast(`✅ ${u?.name} upgraded to ${plan}`, true);
+  } catch(e) { toast('❌ ' + e.message, false); }
+}
+
+async function deleteUser(userId, name) {
+  if (!confirm(`Delete ${name}? This cannot be undone.`)) return;
+  try {
+    const r = await fetch('/api/admin/delete-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-secret': secret },
+      body: JSON.stringify({ userId })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error);
+    allUsers = allUsers.filter(u => u.id !== userId);
+    renderStats();
+    filterUsers();
+    toast(`✅ ${name} deleted`, true);
   } catch(e) { toast('❌ ' + e.message, false); }
 }
 
