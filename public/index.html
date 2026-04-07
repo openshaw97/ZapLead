@@ -63,7 +63,7 @@ h1 em{color:var(--green);font-style:normal}
 
 /* STATS */
 .stats-row{display:flex;justify-content:center;max-width:900px;margin:0 auto 80px;border:1px solid var(--b1);border-radius:12px;overflow:hidden}
-@media(max-width:600px){.stats-row{flex-wrap:wrap}}
+@media(max-width:600px){body{font-size:16px;}.hero-sub{font-size:1rem;line-height:1.6;}.feat-card p,.usecase p{font-size:0.9rem;line-height:1.7;}.stats-row{flex-wrap:wrap}}
 .stat{flex:1;text-align:center;padding:28px 16px;border-right:1px solid var(--b1)}
 .stat:last-child{border-right:none}
 .stat-n{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--green);display:block;margin-bottom:4px}
@@ -236,6 +236,14 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="google-site-verification" content="jwWr7mSKuCZHAnKqXhtD33kqqoLGaNw_apEMOCByFfc" />
 <link rel="canonical" href="https://www.zaplead.co.uk/"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2KTFZGBFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D2KTFZGBFS');
+</script>
 </head>
 <body>
 
@@ -257,9 +265,9 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-  <div class="hero-badge"><span class="pulse"></span>Powered by Google Maps Data</div>
-  <h1>Hundreds of business leads<br>ready to <em>call today</em></h1>
-  <p class="hero-sub">Stop wasting hours searching Google Maps manually. ZapLead pulls <strong>phone numbers, addresses and ratings</strong> for any business type in any UK location — instantly exportable to CSV.</p>
+  <div class="hero-badge"><span class="pulse"></span>Built for UK telecoms &amp; web sales teams</div>
+  <h1>The UK lead tool built for<br><em>telecoms, VoIP &amp; web sales</em></h1>
+  <p class="hero-sub">Telecoms reps, VoIP resellers and web designers — stop building lead lists by hand. ZapLead pulls <strong>hundreds of local businesses with phone numbers</strong> from Google Maps in seconds. Filter for <strong>businesses with no website</strong> and start calling.</p>
   <div class="hero-btns">
     <a href="/register" class="btn-primary">🚀 Start free — no card needed</a>
     <a href="#features" class="btn-outline">See how it works</a>
@@ -267,7 +275,7 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
   <div class="hero-proof">
     <div class="proof-item"><span class="proof-icon">✓</span> Phone numbers included</div>
     <div class="proof-item"><span class="proof-icon">✓</span> Export to CSV in one click</div>
-    <div class="proof-item"><span class="proof-icon">✓</span> Filter: No website businesses</div>
+    <div class="proof-item"><span class="proof-icon">✓</span> No website filter — pitch ready list</div>
     <div class="proof-item"><span class="proof-icon">✓</span> Search unlimited — pay to export</div>
   </div>
 </section>
@@ -311,7 +319,7 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="sec-label">Features</div>
-  <div class="sec-title">Everything a cold caller needs</div>
+  <div class="sec-title">Everything a telecoms &amp; web sales rep needs</div>
   <div class="feat-grid">
     <div class="feat-card feat-highlight">
       <div class="feat-icon">📞</div>
@@ -320,8 +328,8 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
     </div>
     <div class="feat-card feat-highlight">
       <div class="feat-icon">🚫</div>
-      <h3>"No Website" filter</h3>
-      <p>Instantly filter for businesses with no website — a goldmine for web designers, digital agencies and anyone selling online services. These businesses need you.</p>
+      <h3>"No Website" filter — your unfair advantage</h3>
+      <p>One click reveals every business in your search with no website. For web designers and digital agencies this is pure gold — a ready-made list of businesses who desperately need what you sell. No guessing, no wasted calls.</p>
     </div>
     <div class="feat-card">
       <div class="feat-icon">📍</div>
@@ -349,37 +357,37 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
 <!-- WHO IT'S FOR -->
 <section class="usecases" id="usecases">
   <div class="sec-label">Who it's for</div>
-  <div class="sec-title">Built for people who make calls</div>
+  <div class="sec-title">Built for telecoms, VoIP &amp; web sales</div>
   <div class="usecase-grid">
     <div class="usecase">
+      <div class="usecase-who">Telecoms Sales Reps</div>
+      <h3>Fresh local leads every single day</h3>
+      <p>Stop wasting your morning on Google Maps. Search any UK town, pick your business type, and have a fresh call list in 30 seconds. Covers every SME in your territory — ready to dial.</p>
+    </div>
+    <div class="usecase">
+      <div class="usecase-who">VoIP Resellers</div>
+      <h3>Find every business still on landlines</h3>
+      <p>Target local businesses by type and location. Get their phone number, address and website status instantly. Build your monthly pipeline in minutes — not hours.</p>
+    </div>
+    <div class="usecase">
       <div class="usecase-who">Web Designers</div>
-      <h3>Find businesses with no website</h3>
-      <p>Filter for the "No Website" badge and get a list of local businesses actively missing an online presence. Cold call them with a clear pitch.</p>
+      <h3>The no website filter is your goldmine</h3>
+      <p>Filter every search result for businesses with NO website. Every single one is a warm pitch opportunity — they need exactly what you sell. Export the list and start calling today.</p>
     </div>
     <div class="usecase">
-      <div class="usecase-who">Sales Teams</div>
-      <h3>Territory-based prospecting</h3>
-      <p>Search any postcode or town and instantly get hundreds of local businesses with contact details. Divide territories and assign lead lists in minutes.</p>
-    </div>
-    <div class="usecase">
-      <div class="usecase-who">Marketing Agencies</div>
+      <div class="usecase-who">Digital Agencies</div>
       <h3>Prospect for new clients at scale</h3>
-      <p>Find businesses in any niche, in any location. Export to CSV and run outreach campaigns. Works for cold calling or direct mail.</p>
+      <p>Find businesses in any niche, anywhere in the UK. Use the no website filter to identify businesses crying out for digital services. Export to CSV and run your outreach.</p>
     </div>
     <div class="usecase">
-      <div class="usecase-who">Freelancers</div>
-      <h3>Find your next client this week</h3>
-      <p>Search your local area for the business type you serve. Get phone numbers and addresses. Pick up the phone and start conversations.</p>
+      <div class="usecase-who">Card Payment Sellers</div>
+      <h3>Every local business is a prospect</h3>
+      <p>Search restaurants, retailers, garages and tradespeople in any area. Get phone numbers and addresses in bulk. Build your territory list in seconds not hours.</p>
     </div>
     <div class="usecase">
-      <div class="usecase-who">Lead Gen Agencies</div>
-      <h3>Sell leads to local businesses</h3>
-      <p>Build targeted lead lists and sell them to businesses in specific trades. Use the "No Website" filter to find businesses who need digital services.</p>
-    </div>
-    <div class="usecase">
-      <div class="usecase-who">Field Sales</div>
-      <h3>Plan your calling route</h3>
-      <p>Get a list of every business in a radius. Know their address, phone number and opening hours before you knock on the door.</p>
+      <div class="usecase-who">Energy Brokers</div>
+      <h3>Build a local SME pipeline fast</h3>
+      <p>Target businesses by type and location across the whole UK. Get their contact details instantly and start calling. Fresh data every time — never work from a stale list again.</p>
     </div>
   </div>
 </section>
@@ -472,7 +480,7 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
 <!-- CTA -->
 <section class="cta-sec">
   <div class="cta-box">
-    <h2>Start building your call list today</h2>
+    <h2>Start building your telecoms &amp; web sales pipeline today</h2>
     <p>Free to start. No credit card. Get your first 50 exports free — no card needed.</p>
     <a href="/register" class="btn-primary">🚀 Get started free</a>
     <p style="margin-top:16px;font-size:0.82rem;color:var(--t2)">Questions? Email us at <a href="/cdn-cgi/l/email-protection#a9c0c7cfc6e9d3c8d9c5ccc8cd87cac687dcc2" style="color:var(--green)"><span class="__cf_email__" data-cfemail="b9d0d7dfd6f9c3d8c9d5dcd8dd97dad697ccd2">[email&#160;protected]</span></a></p>
@@ -492,7 +500,7 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
     <a href="/blog">Blog</a>
     <a href="/login">Login</a>
     <a href="/register">Sign up</a>
-    <a href="mailto:info@zaplead.co.uk" style="color:var(--t3)">info@zaplead.co.uk</a>
+    <a href="/cdn-cgi/l/email-protection#620b0c040d221803120e0703064c010d4c1709" style="color:var(--t3)"><span class="__cf_email__" data-cfemail="a8c1c6cec7e8d2c9d8c4cdc9cc86cbc786ddc3">[email&#160;protected]</span></a>
   </div>
   <div style="width:100%;border-top:1px solid var(--b1);margin:20px 0 16px"></div>
   <div style="width:100%;display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:8px">
@@ -506,7 +514,7 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
   </div>
   <div class="foot-copy">© 2026 ZapLead. All rights reserved.</div>
 </footer>
-<script type="application/ld+json">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -518,13 +526,4 @@ footer{border-top:1px solid var(--b1);padding:36px 60px;display:flex;align-items
   "offers": [
     {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "GBP"},
     {"@type": "Offer", "name": "Starter", "price": "29", "priceCurrency": "GBP"},
-    {"@type": "Offer", "name": "Pro", "price": "59", "priceCurrency": "GBP"},
-    {"@type": "Offer", "name": "Enterprise", "price": "149", "priceCurrency": "GBP"}
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "5"
-  }
-}
-</script>
+    {"@type": "Offer", "name": "Pro", "price":

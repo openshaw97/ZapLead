@@ -187,8 +187,25 @@ tr:last-child td{border-bottom:none}
 @keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .fade-in{animation:fadeIn 0.25s ease both}
+
+/* Calendly banner */
+.cal-banner{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.04));border:1px solid rgba(34,197,94,0.25);border-radius:10px;padding:14px 20px;margin:0 0 20px;gap:16px;flex-wrap:wrap}
+.cal-banner-text{font-size:0.85rem;color:var(--t2);line-height:1.5}
+.cal-banner-text strong{color:var(--text);font-weight:600}
+.cal-banner-btn{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-weight:800;font-size:0.8rem;padding:8px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.15s}
+.cal-banner-btn:hover{background:#16a34a}
+.cal-banner-close{background:none;border:none;color:var(--t3);cursor:pointer;font-size:1rem;padding:0;line-height:1;flex-shrink:0}
+.cal-banner-close:hover{color:var(--t2)}
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2KTFZGBFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D2KTFZGBFS');
+</script>
 </head>
 <body>
 
@@ -253,6 +270,15 @@ tr:last-child td{border-bottom:none}
 
   <!-- MAIN -->
   <div class="main">
+<!-- CALENDLY BANNER -->
+<div class="cal-banner" id="calBanner" style="display:none">
+  <div class="cal-banner-text">
+    <strong>👋 Welcome to ZapLead!</strong> Book a free 10 min call with Lewis — he'll walk you through the tool and answer any questions.
+  </div>
+  <a href="https://calendly.com/zaplead-info/30min" target="_blank" class="cal-banner-btn">📅 Book a call</a>
+  <button class="cal-banner-close" onclick="dismissBanner()" title="Dismiss">✕</button>
+</div>
+
 
     <!-- SEARCH BAR -->
     <div class="search-bar">
@@ -1107,5 +1133,30 @@ document.addEventListener('keydown', e => { if (e.key === 'Enter' && document.ac
     <div class="onboard-credits">You have <strong>50 free exports</strong> — no card needed</div>
   </div>
 </div>
+<script>
+// Calendly banner - show only for new users
+function initCalBanner() {
+  const dismissed = localStorage.getItem('cal_banner_dismissed');
+  const token = localStorage.getItem('lh_token');
+  if (!dismissed && token) {
+    // Show after small delay
+    setTimeout(() => {
+      const banner = document.getElementById('calBanner');
+      if (banner) banner.style.display = 'flex';
+    }, 1500);
+  }
+}
+function dismissBanner() {
+  const banner = document.getElementById('calBanner');
+  if (banner) banner.style.display = 'none';
+  localStorage.setItem('cal_banner_dismissed', '1');
+}
+// Init on load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCalBanner);
+} else {
+  initCalBanner();
+}
+</script>
 </body>
 </html>

@@ -56,6 +56,14 @@ input::placeholder{color:var(--t3)}
 <meta name="twitter:description" content="Create your free ZapLead account and find hundreds of local UK business leads instantly. Phone numbers, addresses and ratings from Google Maps. No credit card required."/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link rel="canonical" href="https://www.zaplead.co.uk/register"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2KTFZGBFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D2KTFZGBFS');
+</script>
 </head>
 <body>
 <nav><a href="/" class="logo" style="display:flex;align-items:center"><svg width="140" height="36" viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg">
@@ -65,8 +73,8 @@ input::placeholder{color:var(--t3)}
 </svg></a><a href="/login" class="nav-link">Already have an account? Sign in</a></nav>
 <div class="main">
   <div class="perks">
-    <h2>Find business leads<em> in seconds</em></h2>
-    <p>Phone numbers, addresses and ratings for any business type in any UK location. Export to CSV and start calling.</p>
+    <h2>Built for telecoms, VoIP<em> &amp; web sales</em></h2>
+    <p>Stop building lead lists manually. Find hundreds of local businesses with phone numbers in 30 seconds. Web designers — filter for businesses with NO website instantly.</p>
     <div class="perk-list">
       <div class="perk"><div class="perk-ic">📞</div>Phone numbers included on every result</div>
       <div class="perk"><div class="perk-ic">🚫</div>Filter for businesses with NO website</div>
@@ -82,6 +90,7 @@ input::placeholder{color:var(--t3)}
     <div class="field"><label>Your Name</label><input type="text" id="name" placeholder="John Smith" autofocus/></div>
     <div class="field"><label>Email</label><input type="email" id="email" placeholder="you@example.com"/></div>
     <div class="field"><label>Password</label><input type="password" id="pw" placeholder="At least 6 characters"/></div>
+    <div class="field"><label>Phone Number <span style="color:var(--t3);font-weight:400;font-size:0.65rem">(optional)</span></label><input type="tel" id="phone" placeholder="+44 7700 900000"/></div>
     <button class="btn" id="btn" onclick="doRegister()"><div class="spin"></div><span class="bt">Create Free Account →</span></button>
     <div class="terms">By signing up you agree to our terms of service.</div>
     <div class="switch">Already have an account? <a href="/login">Sign in</a></div>
@@ -92,11 +101,12 @@ async function doRegister(){
   const name=document.getElementById('name').value.trim();
   const email=document.getElementById('email').value.trim();
   const pw=document.getElementById('pw').value;
+  const phone=document.getElementById('phone').value.trim();
   if(!name||!email||!pw){showErr('Please fill in all fields');return;}
   const btn=document.getElementById('btn');
   btn.disabled=true;btn.classList.add('loading');hideErr();
   try{
-    const r=await fetch('/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pw})});
+    const r=await fetch('/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pw,phone})});
     const d=await r.json();
     if(!r.ok)throw new Error(d.error);
     localStorage.setItem('lh_token',d.token);
