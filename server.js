@@ -259,14 +259,12 @@ app.get('/api/places', auth, async (req, res) => {
     const mappedKeyword = mapKeyword(keyword);
 
     // Key insight: each Google search returns max 60 results (3 pages x 20)
-    // To get 250+ results we need enough grid points to cover the area with overlap
-    // Cell size = 1000m means each search covers a 1500m radius circle
-    // For a 5km search radius this gives ~25 points = up to 1500 results
-    // For a 10km radius we use larger cells to stay within timeout
-    const CELL = searchRadius <= 5000 ? 1000 :
-                 searchRadius <= 10000 ? 1500 :
-                 searchRadius <= 25000 ? 2500 : 3500;
-    const SEARCH_R = Math.round(CELL * 1.6); // 60% overlap between cells
+    // Denser grid = more points = more coverage = more results
+    // Smaller cell size with more overlap catches businesses between grid points
+    const CELL = searchRadius <= 5000 ? 600 :
+                 searchRadius <= 10000 ? 800 :
+                 searchRadius <= 25000 ? 1200 : 2000;
+    const SEARCH_R = Math.round(CELL * 1.8); // 80% overlap between cells for better coverage
     const EARTH = 6371000;
     const latOff = (CELL / EARTH) * (180 / Math.PI);
     const lngOff = latOff / Math.cos(clat * Math.PI / 180);
@@ -280,11 +278,10 @@ app.get('/api/places', auth, async (req, res) => {
       }
     }
 
-    // No artificial cap — run as many points as needed
-    // Railway has a 60s timeout so cap at 40 points max to be safe
-    // Each point takes ~2-3s with pagination so 40 pts = ~80-100s worst case
-    // In practice most points have no next_page_token so it's much faster
-    const MAX_POINTS = 40;
+    // Increased to 80 points for denser coverage in large cities
+    // Railway has a 60s timeout — with fast responses most complete well under this
+    // Deduplication ensures no duplicate results even with overlapping grid points
+    const MAX_POINTS = 80;
     const searchPoints = allPoints.slice(0, MAX_POINTS);
 
     const seen = new Set();
